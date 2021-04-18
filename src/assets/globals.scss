@@ -1,0 +1,202 @@
+$color_blue: rgb(67, 180, 255);
+$color_dark_blue: #090924;
+$color_yellow_light: #f8c500;
+$color_yellow: #ffd429;
+$color_brown: #241F09;
+$color_purple: #7A21C4;
+$color_red: #ea4d4d;
+$color_green: #41C418;
+$color_bg: #ededed;
+$color_dark: #1d1d20;
+
+@import url('https://fonts.googleapis.com/css2?family=Turret+Road:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+html, body{
+	margin: 0;
+	padding: 0;
+	max-width: 100%;
+	overflow-x: hidden;
+}
+.title{
+	font-family: 'Turret Road', cursive;
+}
+.mono{
+	font-family: 'Ubuntu Mono', monospace;
+}
+h1{
+	margin: 0 !important;
+}
+
+a{
+	text-decoration: none !important;
+}
+
+// .section{
+// 	max-height: 1000px !important;
+// }
+
+.text{
+	&-django{
+		color: #0F3C2D !important;
+	}
+	&-vue{
+		color:#3FB27F !important;
+	}
+	&-node{
+		color: #82BF46 !important;
+	}
+	&-python{
+		color: #F8C500 !important;
+	}
+	&-full{
+		color:rgb(67, 180, 255) !important;
+	}
+	&-red{
+		color:$color_red !important;
+	}
+	&-shadow{
+		text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7	) !important;
+	}
+	&-white{
+		text-shadow: 1px 1px 1px $color_bg !important;
+	}
+	&-yellow{
+		color: $color_yellow !important;
+		&-l{
+			color: $color_yellow_light !important;
+		}
+	}
+}
+
+@mixin verySmall() {
+	@media only screen and (max-width: 200px) {
+			@content;
+	}
+}
+@mixin small() {
+	@media only screen and (max-width: 450px) {
+			@content;
+	}
+}
+@mixin medium() {
+	@media only screen and (max-width: 900px) {
+			@content;
+	}
+}
+@mixin large() {
+	@media only screen and (min-width: 901px) {
+			@content;
+	}
+}
+
+@mixin textShadow($color){
+	text-shadow: 1px 1px 1px $color !important;
+}
+
+@mixin size($verySmall, $small, $medium, $large, $type){
+	@if $type == "f"{
+		@include verySmall{
+			font-size: $verySmall !important;
+		}
+		@include small{
+			font-size:$small !important;
+		}
+		@include medium{
+			font-size:$medium !important;
+		}
+		@include large{
+			font-size:$large !important;
+		}
+	}
+	@else{
+		@include small{
+			width:$small !important;
+		}
+		@include medium{
+			width:$medium !important;
+		}
+		@include large{
+			width:$large !important;
+		}
+	}
+}
+
+@mixin margin($verySmall, $small, $medium, $large, $type){
+	@if $type == 'm'{
+		@include verySmall{
+			margin: $verySmall !important;
+		}
+		@include small{
+			margin: $small !important;
+		}
+		@include medium{
+			margin: $medium !important;
+		}
+		@include large{
+			margin: $large !important;
+		}
+	}
+	@if $type == 'mt'{
+		@include verySmall{
+			margin-top: $verySmall !important;
+		}
+		@include small{
+			margin-top: $small !important;
+		}
+		@include medium{
+			margin-top: $medium !important;
+		}
+		@include large{
+			margin-top: $large !important;
+		}
+	}
+	@if $type == 'ml'{
+		@include verySmall{
+			margin-left: $verySmall !important;
+		}
+		@include small{
+			margin-left: $small !important;
+		}
+		@include medium{
+			margin-left: $medium !important;
+		}
+		@include large{
+			margin-left: $large !important;
+		}
+	}
+	@if $type == 'mb'{
+		@include verySmall{
+			margin-bottom: $verySmall !important;
+		}
+		@include small{
+			margin-bottom: $small !important;
+		}
+		@include medium{
+			margin-bottom: $medium !important;
+		}
+		@include large{
+			margin-bottom: $large !important;
+		}
+	}
+	@if $type == 'mr'{
+		@include verySmall{
+			margin-right: $verySmall !important;
+		}
+		@include small{
+			margin-right: $small !important;
+		}
+		@include medium{
+			margin-right: $medium !important;
+		}
+		@include large{
+			margin-right: $large !important;
+		}
+	}
+}
+
+
+.bigger{
+	@include size(20px, 25px, 60px, 120px, "f");
+}
+
+
