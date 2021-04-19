@@ -14,7 +14,7 @@ export default {
   data(){
     return {
       apiUrl: "https://api.ennes.dev/portfolio",
-      maintenance: true,
+      maintenance: false,
     }
   },
   components: {
