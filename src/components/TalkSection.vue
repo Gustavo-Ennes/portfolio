@@ -18,6 +18,7 @@
         class='my-5'
         :disabled='!isValid'
         :class="{'bg-red': !isValid}"
+        @click='sendMail'
         >{{ btnText }}</b-button>
       </div>
     </b-col>
@@ -68,6 +69,9 @@ export default {
   methods: {
     async handleClick(){
       await this.$emit('down');
+    },
+    async sendMail(){
+      
     }
   }
 

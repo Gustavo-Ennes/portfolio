@@ -12,6 +12,7 @@
     "bootstrap": "^4.6.0",
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.10.1",
+    "nodemailer": "^6.5.0",
     "smoothscroll": "^0.4.0",
     "vue": "^2.6.12",
     "vue-typed-js": "^0.1.2"
