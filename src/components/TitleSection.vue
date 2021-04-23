@@ -2,13 +2,13 @@
 	<b-row class='title-section' align-v='center'>
 		<b-col cols='12' lg='10' class='cols-1'>
 			<div class='p-3'>
-				<h1 class='title bigger exclamation text-python'>
+				<h1 class='title bigger exclamation text-python animate__animated animate__bounce'>
 					{
 				</h1>
 				<h1 class='text-center text-light title bigger'>
-					hello: <small class='far fa-hand-peace text-full'></small>
+					hello: <small class='far fa-hand-peace text-full animate__animated animate__fadeInDownBig animate__delay__1s'></small>
 				</h1>
-				<h1 class='text-right text-warning exclamation bigger'>}</h1>
+				<h1 :class="{'animate__hinge animate__delay__1s': isScrolling}" class='text-right text-warning exclamation bigger animate__animated animate__rubberBand animate__delay-1s'>}</h1>
 			</div>
 		</b-col>
 		<b-col cols='12' lg='2' class='cols-2'>
@@ -29,7 +29,7 @@
 			</vue-typed-js>
 		</b-col>
 		<b-col cols='12' class='text-center cols-3'>
-			<b-link class='btn mrgBtn mono' @click="handleClick">See more</b-link>
+			<b-link :class="{'animate__rollOut': clicked}" class='btn mrgBtn mono animate__animated animate__rollIn' @click="handleClick">See more</b-link>
 		</b-col>
 		<!-- <b-col cols='12 text-center'>
 			<b-img id='titleImg' src="https://miro.medium.com/max/1200/1*izk2NkHnucNIl5A-YtlZKw.png" fluid></b-img>
@@ -38,7 +38,7 @@
 </template>
 
 <script>
-
+import 'animate.css';
 export default {
 	name: 'TitleSection',
 	methods: {
@@ -46,11 +46,17 @@ export default {
 			this.isBtnVisible = true
 		},
 		async handleClick(){
+			this.clicked = true
 			await this.$emit("down");
+		},
+		handleScroll(){
+			this.isScrolling = true;
 		}
 	},
 	data(){
 		return{
+			clicked: false,
+			isScrolling: false,
 			startAnother: false,
 			isBtnVisible: false,
 			strings: [
@@ -61,6 +67,9 @@ export default {
 				"<span class='text-red'> new </span>SoftwareEngineer( <b class='text-full'>'__full_stack__'</b> )"
 			]
 		}
+	},
+	created(){
+		window.addEventListener('scroll', this.handleScroll)
 	}
 };
 </script>

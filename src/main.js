@@ -4,8 +4,8 @@ import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 import VueTypedJs from 'vue-typed-js';
 import Axios from "axios";
 
-Axios.defaults.baseURL = "https://api.ennes.dev/";
-// "http://localhost:3000/";
+Axios.defaults.baseURL =  "http://localhost:3000/";
+//"https://api.ennes.dev/";
 
 
 // Import Bootstrap an BootstrapVue CSS files (order is important)

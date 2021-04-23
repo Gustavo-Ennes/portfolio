@@ -16,7 +16,7 @@
 
 
 		<b-col id='talkSection' cols='12' class='section section-talk_to_me' :style="style">
-			<TalkSection @api='api' @down="scrollTo('contacts')" />
+			<TalkSection @api='api' @down="scrollTo('title')" />
 		</b-col>
 	</b-row>
 	

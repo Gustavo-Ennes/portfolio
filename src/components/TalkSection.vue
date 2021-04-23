@@ -50,19 +50,19 @@
       <h1 class='text-node title text-center my-5 text-shadow '>or <span class='text-white text-shadow'>contact me</span> in <span class='text-vue'>social</span> media</h1>
       <div class='socialWrapper my-5'>
         <b-row align-h='center' class='text-center'>
-          <b-col cols='3'>
+          <b-col>
             <a href='#'><i class="fab fa-facebook display-4"></i></a>
           </b-col>
 
-          <b-col cols='3'>
+          <b-col>
             <a href='#'><i class="fab fa-github display-4"></i></a>
           </b-col>
 
-          <b-col cols='3'>
+          <b-col>
             <a href='#'><i class="fab fa-linkedin display-4"></i></a>
           </b-col>
 
-          <b-col cols='3'>
+          <b-col>
             <a href='#'><i class="fab fa-hackerrank display-4"></i></a>
           </b-col>
         </b-row>
@@ -102,6 +102,11 @@ export default {
     },   
     btnText(){
       return !this.isValid ? 'Say hello!' : (!this.emailSended ? 'Send it!' : 'Done!')
+    },
+    myMailText(){
+      return `
+        The client ${this.email} says:\n\n\n${this.text}
+      `
     }
   },
   methods: {
@@ -114,7 +119,7 @@ export default {
         let res = await axios.post('send-mail/', {
           to: [this.email],
           from: null,
-          html: "WelcomeTemplate", 
+          html: "WelcomeTemplate",
           text: null,
           subject: "Hi, I'm Gustavo!"
         })
@@ -125,10 +130,10 @@ export default {
 
       if(this.isValid){
         let res = await axios.post('send-mail/', {
-          to: ["reports@ennes.dev"],
+          to: ["talk-to-me@ennes.dev"],
           from: null,
           html: null, 
-          text: `The client ${this.email} says:\n\n\n${this.text}`,
+          text: this.myMailText,
           subject: "THERE'S A MESSAGE IN MY PORTFOLIO"
         })
         console.log(res)
