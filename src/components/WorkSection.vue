@@ -4,7 +4,7 @@
       <h1 class='title bigger text-full text-center'>Projects</h1>
     </b-col>
 
-    <b-col v-for='project in projects' :key='project._id' cols='12' md='6' lg='4' class='cols-2'>
+    <b-col v-for='project in projects' :key='project._id' cols='12' md='6' lg='4' class='cols-2 bg'>
       <Work :project='project'/>
     </b-col>
     

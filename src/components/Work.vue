@@ -5,7 +5,7 @@
   >
     <b-card-body class='bg'>
       <b-card-title class='title text-yellow text-shadow bg'><b>{{ project.title }}</b></b-card-title>
-      <b-card-sub-title class="mb-2"><p class='text-white text-shadow'>{{ project.subtitle}}</p></b-card-sub-title>
+      <b-card-sub-title class="mb-2"><p class='text-white text-shadow'>{{ project.subTitle}}</p></b-card-sub-title>
       <b-card-text class='mono text-warning text-shadow bg'>
         {{ project.description }}
       </b-card-text>
@@ -36,14 +36,17 @@ export default {
 <style lang='scss' scoped>
   .card{
     margin: 5%;
-    border-radius:12px;
+    border-bottom-left-radius:12px;
+    border-bottom-right-radius: 12px ;
+    background-color: transparent !important;
+
     &-title{
       @include size(15px, 20px, 30px,50px, 'f');
       background-color: rgba(0, 0, 0, 0.15);
-      border-bottom-right-radius: 100px;
+      border-bottom-right-radius: 100px !important;
     }
     &-subtitle{
-      @include size(12px, 15px, 20px,25px, 'f');
+      @include size(10px, 12px, 14px, 18px, 'f');
       margin-top: 10px;
     }
     &-text{
@@ -55,11 +58,14 @@ export default {
   }
   .bg{
     background-color:rgba(67, 180, 255, 0.65) !important;
+    border-radius:12px;
   }
   .text-include{
     @include size(11px, 15px, 20px, 25px, 'f');
   }
-
+  .list-group{
+    border-radius:10px !important
+  }
   .list-group-item{
     background-color: $color_yellow !important;
     :hover{

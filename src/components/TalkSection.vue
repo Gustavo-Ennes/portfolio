@@ -11,12 +11,12 @@
         v-model="email"        
         class='bg-10 text-success mono mb-3'
         placeholder='Enter your e-mail'
-        :state='isValid'>
+        :state='isEmailValid'>
         </b-input>
         <b-form-textarea
         id="textarea-state"
         v-model="text"
-        :state="isValid"
+        :state="isMessageValid"
         placeholder="Enter at least 30 characters"
         rows="10"
         class='bg-10 text-success mono '
@@ -24,21 +24,19 @@
         </b-form-textarea>
         <b-button
         class='my-5'
-        :disabled='!isValid'
+        :disabled='!isValid || emailSended'
         :class="{
           'bg-red': !isValid, 
           'bg-blue': (isValid && !emailSended),
           'bg-10': (isValid && emailSended)
         }"
-        @click="sendMail"
-        
+        @click="sendMails"        
         >
           <b-overlay
             id="overlay-background"
             :show="btnLoading"
-            :variant="variant"
-            :opacity="opacity"
-            :blur="blur"
+            :variant="'primary'"
+            :opacity="'0.1'"
             rounded="sm"
           >
           {{ btnText }}
@@ -76,6 +74,8 @@
 </template>
 
 <script>
+const axios = require('axios');
+
 export default {
   name: 'TalkSection',
   props: ['api'],
@@ -89,15 +89,17 @@ export default {
   },
   computed: {
     isValid(){
-      return this.text.length > 30 && this.isEmailValid && !this.emailSended;
+      return (this.isMessageValid && this.isEmailValid);
     },
     isEmailValid(){
       if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+$/.test(this.email)){
           return true
       }
-      console.log(`The e-mail ${this.email} is not valid.`)
       return (false)   
-    },    
+    },
+    isMessageValid(){
+      return this.text.length > 30
+    },   
     btnText(){
       return !this.isValid ? 'Say hello!' : (!this.emailSended ? 'Send it!' : 'Done!')
     }
@@ -106,25 +108,50 @@ export default {
     async handleClick(){
       await this.$emit('down');
     },
-    async sendMail(){
-      this.btnLoading = true
-
-      const axios = require('axios').default;
+    async sendClientMail(){ 
 
       if(this.isValid){
-        let res = await axios.post(`${this.api}/portfolio/send-mail`, {
-          to: this.email
+        let res = await axios.post('send-mail/', {
+          to: [this.email],
+          from: null,
+          html: "WelcomeTemplate", 
+          text: null,
+          subject: "Hi, I'm Gustavo!"
         })
         console.log(res)
       }
-      this.btnLoading = false
-      this.emailSended = true
-    }
-  },
-  mounted(){
-    this.isEmailValid()
-  }
+    },
+    async sendMyMail(){
 
+      if(this.isValid){
+        let res = await axios.post('send-mail/', {
+          to: ["reports@ennes.dev"],
+          from: null,
+          html: null, 
+          text: `The client ${this.email} says:\n\n\n${this.text}`,
+          subject: "THERE'S A MESSAGE IN MY PORTFOLIO"
+        })
+        console.log(res)
+      }
+
+    },
+    async sendMails(){
+      if(this.isValid && !this.emailSended){
+        try{
+          this.btnLoading = true
+
+          await this.sendClientMail()
+          await this.sendMyMail()
+
+          this.btnLoading = false
+          this.emailSended = true
+        }catch(err){
+          console.log(err)
+        }
+      }
+     
+    }
+  }
 }
 </script>
 

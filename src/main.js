@@ -1,8 +1,10 @@
-import Vue from 'vue'
-import App from './App.vue'
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
-import VueTypedJs from 'vue-typed-js'
-import cors from 'cors';
+import Vue from 'vue';
+import App from './App.vue';
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
+import VueTypedJs from 'vue-typed-js';
+import Axios from "axios";
+
+Axios.defaults.baseURL = "http://localhost:3000/";
 
 
 // Import Bootstrap an BootstrapVue CSS files (order is important)
@@ -15,8 +17,6 @@ Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 //type js vue plugin
 Vue.use(VueTypedJs)
-// Cors headers
-Vue.use(cors)
 
 Vue.config.productionTip = false
 
