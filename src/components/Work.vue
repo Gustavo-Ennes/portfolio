@@ -4,18 +4,22 @@
     no-body
   >
     <b-card-body class='bg'>
-      <b-card-title class='title text-yellow text-shadow bg'><b>Kratodo</b></b-card-title>
-      <b-card-sub-title class="mb-2"><p class='text-white text-shadow'>A Simple todo app</p></b-card-sub-title>
+      <b-card-title class='title text-yellow text-shadow bg'><b>{{ project.title }}</b></b-card-title>
+      <b-card-sub-title class="mb-2"><p class='text-white text-shadow'>{{ project.subtitle}}</p></b-card-sub-title>
       <b-card-text class='mono text-warning text-shadow bg'>
-        Some quick example text to build on the card title and make up the bulk of the card's
-        content.
+        {{ project.description }}
       </b-card-text>
+      <b-row align-v='center' align-h='around'>
+        <b-col v-for="tech in project.usedTechs" :key='tech' class='text-center'>
+          <small class='mono text-white text-shadow techFont'>{{ tech }}</small>
+        </b-col>
+      </b-row>
     </b-card-body>
 
     <b-list-group class='text-full text-shadow text-center w-100' flush>
-      <b-list-group-item><a href='#'>Page</a></b-list-group-item>
-      <b-list-group-item><a href='#'>Repo</a></b-list-group-item>
-      <b-list-group-item><a href='#'>Presentation</a></b-list-group-item>
+      <b-list-group-item><b-link :href='project.projectLink'>Page</b-link></b-list-group-item>
+      <b-list-group-item><b-link :href='project.repo'>Repo</b-link></b-list-group-item>
+      <b-list-group-item><b-link :href='project.presentation'>Presentation</b-link></b-list-group-item>
     </b-list-group>
   </b-card>
 
@@ -25,11 +29,7 @@
 <script>
 export default {
   name: "Work",
-  methods: {
-    handleClick(){
-      
-    }
-  }
+  props: ['project'],
 }
 </script>
 
@@ -66,6 +66,10 @@ export default {
       background-color: $color_blue !important;
       color: $color_yellow !important;
     }
+  }
+
+  .techFont{
+    @include size(10px, 12px, 15px, 18px, 'f');
   }
 
 

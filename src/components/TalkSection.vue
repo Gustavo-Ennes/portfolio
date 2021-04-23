@@ -6,6 +6,13 @@
     </b-col>
     <b-col cols='12' md='6'>
       <div class='m-2 mt-5 text-center'>
+        <b-input 
+        type="email" 
+        v-model="email"        
+        class='bg-10 text-success mono mb-3'
+        placeholder='Enter your e-mail'
+        :state='isValid'>
+        </b-input>
         <b-form-textarea
         id="textarea-state"
         v-model="text"
@@ -13,13 +20,31 @@
         placeholder="Enter at least 30 characters"
         rows="10"
         class='bg-10 text-success mono '
-        ></b-form-textarea>
+        >
+        </b-form-textarea>
         <b-button
         class='my-5'
         :disabled='!isValid'
-        :class="{'bg-red': !isValid}"
-        @click='sendMail'
-        >{{ btnText }}</b-button>
+        :class="{
+          'bg-red': !isValid, 
+          'bg-blue': (isValid && !emailSended),
+          'bg-10': (isValid && emailSended)
+        }"
+        @click="sendMail"
+        
+        >
+          <b-overlay
+            id="overlay-background"
+            :show="btnLoading"
+            :variant="variant"
+            :opacity="opacity"
+            :blur="blur"
+            rounded="sm"
+          >
+          {{ btnText }}
+          </b-overlay>
+          
+        </b-button>
       </div>
     </b-col>
 
@@ -53,17 +78,28 @@
 <script>
 export default {
   name: 'TalkSection',
+  props: ['api'],
   data(){
     return{
       text: '',
+      email: '',
+      btnLoading: false,
+      emailSended: false
     }
   },
   computed: {
     isValid(){
-      return this.text.length > 30;
+      return this.text.length > 30 && this.isEmailValid && !this.emailSended;
     },
+    isEmailValid(){
+      if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+$/.test(this.email)){
+          return true
+      }
+      console.log(`The e-mail ${this.email} is not valid.`)
+      return (false)   
+    },    
     btnText(){
-      return !this.isValid ? 'Say hello!' : 'Send it!'
+      return !this.isValid ? 'Say hello!' : (!this.emailSended ? 'Send it!' : 'Done!')
     }
   },
   methods: {
@@ -71,8 +107,22 @@ export default {
       await this.$emit('down');
     },
     async sendMail(){
-      
+      this.btnLoading = true
+
+      const axios = require('axios').default;
+
+      if(this.isValid){
+        let res = await axios.post(`${this.api}/portfolio/send-mail`, {
+          to: this.email
+        })
+        console.log(res)
+      }
+      this.btnLoading = false
+      this.emailSended = true
     }
+  },
+  mounted(){
+    this.isEmailValid()
   }
 
 }

@@ -13,8 +13,8 @@ export default {
   name: 'App',
   data(){
     return {
-      apiUrl: "https://api.ennes.dev/portfolio",
-      maintenance: true,
+      apiUrl: "https://api.ennes.dev",
+      maintenance: false,
     }
   },
   components: {

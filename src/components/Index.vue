@@ -11,12 +11,12 @@
 
 
 		<b-col id='workSection' cols='12' class='section section-works color-dark' :style="style">
-			<WorkSection @down="scrollTo('talkToMe')"/>
+			<WorkSection :api='api' @down="scrollTo('talkToMe')"/>
 		</b-col>
 
 
 		<b-col id='talkSection' cols='12' class='section section-talk_to_me' :style="style">
-			<TalkSection @down="scrollTo('contacts')" />
+			<TalkSection @api='api' @down="scrollTo('contacts')" />
 		</b-col>
 	</b-row>
 	
