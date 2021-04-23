@@ -14,7 +14,7 @@ export default {
   data(){
     return {
       apiUrl: "https://api.ennes.dev",
-      maintenance: false,
+      maintenance: true,
     }
   },
   components: {
