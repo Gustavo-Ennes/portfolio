@@ -20,7 +20,11 @@ export default {
   components: {
     Index,
     Maintenance
-  }
+  },
+  // mounted(){
+  //   const htmlElements = document.getElementsByClassName('btn');
+  //   console.log(htmlElements)
+  // }
 };
 </script>
 
