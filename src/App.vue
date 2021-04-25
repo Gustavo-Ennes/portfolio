@@ -6,25 +6,45 @@
 </template>
 
 <script>
-import Index from './components/Index.vue'
-import Maintenance from './components/MaintenanceScreen.vue'
+import Maintenance from './components/MaintenanceScreen.vue';
+import Index from './components/Index.vue';
 
 export default {
   name: 'App',
   data(){
     return {
       apiUrl: "https://api.ennes.dev",
-      maintenance: true,
+      maintenance: false
     }
   },
   components: {
     Index,
     Maintenance
   },
-  // mounted(){
-  //   const htmlElements = document.getElementsByClassName('btn');
-  //   console.log(htmlElements)
-  // }
-};
+  methods: {
+    makeTransparent(){
+      let els = document.querySelectorAll(".animate")
+      els.forEach( el => {
+        el.style.setProperty('visibility', 'hidden')
+      })
+    },
+    addScrollListener(){
+      let animate = require('../utils/animateCSS')
+
+      document.addEventListener('scroll',() => {
+        const toAnimateElements = document.querySelectorAll(".animate");
+        toAnimateElements.forEach( (el) => {
+          animate(el);
+        });
+      });
+    },
+
+  },
+  mounted(){
+    this.makeTransparent()
+    this.addScrollListener()
+  }
+}
 </script>
+
 

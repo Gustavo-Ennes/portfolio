@@ -2,7 +2,7 @@
   <main class='bg-dark bg-mario text-center'>
     <b-row align-h="center" align-v="center" class='bg-fade'>
       <b-col class='vh-100 d-flex align-items-center'>
-        <h1 class='w-100 mono display-4 text-light txtShdw'>Sorry, we're under maintenance</h1>
+        <h1 class='w-100 mono display-4 text-light txtShdw animate__animated animate__zoomInDown'>Sorry, we're under maintenance</h1>
       </b-col>
     </b-row>
   </main>

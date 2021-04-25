@@ -1,21 +1,38 @@
 <template>
   <b-row class='img-bg'>
     <b-col cols='12' class='w-100 text-right mt-1 cols-1'>
-        > <small class='text-node'>stringify( <span class='text-full'>me</span> );</small>
+      <small class='text-node'>
+          <vue-typed-js 
+          :strings="[`stringify( <span class='text-full'>me</span> );`]"
+          :typeSpeed='50'
+          :backSpeed='35'
+          :startDelay='1500'
+          :backDelay='1000'
+          :cursorChar="'_'"
+          >
+            <span class='mono title animate'>
+              >
+              <span class='typing'></span>
+            </span>
+          </vue-typed-js>
+      </small>
     </b-col>
     <b-col id='descTitle' cols='12' md='8' lg='6' offset-md='2' offset-lg='3' class='text-center'>
       <div class='m-1'>
-        <h1 class='title display-3 shdwBlue'><span class='text-vue hi'>Hi</span>, I'm <span class='shdwBlue'>Gus</span>tavo <span class='shdwBlue ennes'>Ennes!</span></h1>
-        <p class='mono p-2 text-bg cols-2'>
-          Web development experience <span class='text-shadow'>using </span>
-          <span class='text-node'>Node.js</span>, 
-          <span class='text-python'>Python</span>,
-          <span class='text-red'>Java</span> in server side, 
-          storing in no-sql database like <span class='text-success'>mongoDB</span> or a relational one,
-          and handling the client side with the awesome <span class='text-vue'>Vue.js.... </span>
+        <h1 class='title display-3 shdwBlue animate'>
+          <span class='text-vue hi'>Hi</span>, 
+          I'm <span class='shdwBlue'>Gus</span>tavo 
+          <span class='shdwBlue ennes'>Ennes!</span>
+        </h1>
+        <p class='mono p-2 cols-2 text-bg animate'>
+            Web development experience <span class='text-shadow'>using </span>
+            <span class='text-node'>Node.js</span>, 
+            <span class='text-python'>Python</span>,
+            <span class='text-red'>Java</span> in server side, 
+            storing in no-sql database like <span class='text-success'>mongoDB</span> or a relational one,
+            and handling the client side with the awesome <span class='text-vue'>Vue.js.... </span>
 
-          <a class='text-full' v-b-modal.modal-me><small>Read more</small></a>
-
+            <a class='text-full' v-b-modal.modal-me><small>Read more</small></a>
           <b-modal 
           id="modal-me" 
           size="xl" 
@@ -57,27 +74,34 @@
       </div>
     </b-col>
     <b-col cols='12' class='w-100 text-center cols-3'>
-      <p class='text-shadow mono text-yellow-l'>
+      <p class='text-shadow mono text-yellow-l animate__delay__2s animate '>
         ...and a 8 minutes or more progrock
          songs
          while drinking a pure strong almost-no-sugar coffee skill too
       </p>
     </b-col>
 		<b-col cols='12' class='text-center cols-4'>
-			<b-link class='btn btn-dark text-full mrgBtn mono' @click="handleClick">See projects</b-link>
+			<b-link class='btn btn-dark text-full mrgBtn mono animate' @click="handleClick">See projects</b-link>
 		</b-col>
   </b-row>
 </template>
 
 <script>
+
 export default {
   name: 'DescriptionSection',
+  props: ['doEffectHeight'],
+  data(){
+    return{
+      clicked: false,
+    }
+  },
   methods:{
     async handleClick(){
+      this.clicked = true
       await this.$emit('down');
-    }
-  }
-
+    },
+  },
 }
 </script>
 

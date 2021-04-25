@@ -1,30 +1,27 @@
 <template>
-  <div>
+  <b-card
+    no-body
+    class=''
+  >
+    <b-card-body class='bg h-100'>
+      <b-card-title class='title text-yellow text-shadow bg'><b>{{ project.title }}</b></b-card-title>
+      <b-card-sub-title class="mb-2"><p class='text-white text-shadow'>{{ project.subTitle}}</p></b-card-sub-title>
+      <b-card-text class='mono text-warning text-shadow bg'>
+        {{ project.description }}
+      </b-card-text>
+      <b-row align-v='end' align-h='around' class='mrgn'>
+        <b-col v-for="tech in project.usedTechs" :key='tech' class='text-center'>
+          <small class='mono text-white text-shadow techFont mt-5'>{{ tech }}</small>
+        </b-col>
+      </b-row>
 
-    <b-card
-      no-body
-    >
-      <b-card-body class='bg h-100'>
-        <b-card-title class='title text-yellow text-shadow bg'><b>{{ project.title }}</b></b-card-title>
-        <b-card-sub-title class="mb-2"><p class='text-white text-shadow'>{{ project.subTitle}}</p></b-card-sub-title>
-        <b-card-text class='mono text-warning text-shadow bg'>
-          {{ project.description }}
-        </b-card-text>
-        <b-row align-v='end' align-h='around' class='mrgn'>
-          <b-col v-for="tech in project.usedTechs" :key='tech' class='text-center'>
-            <small class='mono text-white text-shadow techFont mt-5'>{{ tech }}</small>
-          </b-col>
-        </b-row>
-
-      <b-list-group class='text-full text-shadow text-center w-100 h-35 mt-0' flush>
-        <b-list-group-item><b-link :href='project.projectLink'>Page</b-link></b-list-group-item>
-        <b-list-group-item><b-link :href='project.repo'>Repo</b-link></b-list-group-item>
-        <b-list-group-item><b-link :href='project.presentation'>Presentation</b-link></b-list-group-item>
-      </b-list-group>
-      </b-card-body>
-    </b-card>
-
-  </div>
+    <b-list-group class='text-full text-shadow text-center w-100 h-35 mt-0' flush>
+      <b-list-group-item><b-link :href='project.projectLink'>Page</b-link></b-list-group-item>
+      <b-list-group-item><b-link :href='project.repo'>Repo</b-link></b-list-group-item>
+      <b-list-group-item><b-link :href='project.presentation'>Presentation</b-link></b-list-group-item>
+    </b-list-group>
+    </b-card-body>
+  </b-card>
 
 
 </template>
@@ -32,7 +29,7 @@
 <script>
 export default {
   name: "Work",
-  props: ['project'],
+  props: ['project']
 }
 </script>
 

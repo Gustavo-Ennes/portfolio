@@ -29,7 +29,7 @@
 			</vue-typed-js>
 		</b-col>
 		<b-col cols='12' class='text-center cols-3'>
-			<b-link :class="{'animate__rollOut': clicked}" class='btn mrgBtn mono animate__animated animate__rollIn' @click="handleClick">See more</b-link>
+			<b-link class='btn mrgBtn mono animate' @click="handleClick">See more</b-link>
 		</b-col>
 		<!-- <b-col cols='12 text-center'>
 			<b-img id='titleImg' src="https://miro.medium.com/max/1200/1*izk2NkHnucNIl5A-YtlZKw.png" fluid></b-img>
@@ -38,13 +38,9 @@
 </template>
 
 <script>
-import 'animate.css';
 export default {
 	name: 'TitleSection',
 	methods: {
-		handleTypeCompleted(){
-			this.isBtnVisible = true
-		},
 		async handleClick(){
 			this.clicked = true
 			await this.$emit("down");

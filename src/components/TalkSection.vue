@@ -1,15 +1,15 @@
 <template>
   <b-row align-v='center' class='main'>
-    <b-col cols='12'><h1 class='text-full display-2 title text-center text-shadow my-5'>Send a <span class='text-vue'>message</span> </h1></b-col>
+    <b-col cols='12'><h1 class='text-full display-2 title text-center text-shadow my-5'>Send a <span class='text-vue animate'>message</span></h1></b-col>
     <b-col cols='12' md='6'>
-      <h1 class='display-1 text-full title text-center text-shadow'>h e r e</h1>
+      <h1 class='display-1 text-full title text-center text-shadow animate'>h e r e</h1>
     </b-col>
     <b-col cols='12' md='6'>
       <div class='m-2 mt-5 text-center'>
         <b-input 
         type="email" 
         v-model="email"        
-        class='bg-10 text-success mono mb-3'
+        class='bg-10 text-success mono mb-3 animate animate__zoom'
         placeholder='Enter your e-mail'
         :state='isEmailValid'>
         </b-input>
@@ -19,11 +19,11 @@
         :state="isMessageValid"
         placeholder="Enter at least 30 characters"
         rows="10"
-        class='bg-10 text-success mono '
+        class='bg-10 text-success mono animate animate__zoom'
         >
         </b-form-textarea>
         <b-button
-        class='my-5'
+        class='my-5 animate'
         :disabled='!isValid || emailSended'
         :class="{
           'bg-red': !isValid, 
@@ -47,23 +47,23 @@
     </b-col>
 
     <b-col cols='12'>
-      <h1 class='text-node title text-center my-5 text-shadow '>or <span class='text-white text-shadow'>contact me</span> in <span class='text-vue'>social</span> media</h1>
+      <h1 class='text-node title text-center my-5 text-shadow animate'>or <span class='text-white text-shadow'>contact me</span> in <span class='text-vue'>social</span> media</h1>
       <div class='socialWrapper my-5'>
         <b-row align-h='center' class='text-center'>
           <b-col>
-            <a href='#'><i class="fab fa-facebook display-4"></i></a>
+            <a href='#'><i class="fab fa-facebook display-4 animate animate__zoom"></i></a>
           </b-col>
 
           <b-col>
-            <a href='#'><i class="fab fa-github display-4"></i></a>
+            <a href='#'><i class="fab fa-github display-4 animate animate__zoom"></i></a>
           </b-col>
 
           <b-col>
-            <a href='#'><i class="fab fa-linkedin display-4"></i></a>
+            <a href='#'><i class="fab fa-linkedin display-4 animate animate__zoom"></i></a>
           </b-col>
 
           <b-col>
-            <a href='#'><i class="fab fa-hackerrank display-4"></i></a>
+            <a href='#'><i class="fab fa-hackerrank display-4 animate animate__zoom"></i></a>
           </b-col>
         </b-row>
       </div>
