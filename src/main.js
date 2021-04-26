@@ -3,6 +3,8 @@ import App from './App.vue';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 import VueTypedJs from 'vue-typed-js';
 import Axios from "axios";
+import Meta from 'vue-meta';
+
 
 Axios.defaults.baseURL =  "https://api.ennes.dev/";
 
@@ -17,6 +19,8 @@ Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 //type js vue plugin
 Vue.use(VueTypedJs)
+// SEO
+Vue.use(Meta);
 
 Vue.config.productionTip = false
 
