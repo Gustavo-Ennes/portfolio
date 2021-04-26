@@ -6,7 +6,7 @@
 					{
 				</h1>
 				<h1 class='text-center text-light title bigger'>
-					hello: <small class='far fa-hand-peace text-full animate__animated animate__fadeInDownBig animate__delay__1s'></small>
+					hello: <small id='handPeace' class='far fa-hand-peace text-full animate__animated animate__fadeInDownBig animate__delay__1s'></small>
 				</h1>
 				<h1 :class="{'animate__hinge animate__delay__1s': isScrolling}" class='text-right text-warning exclamation bigger animate__animated animate__rubberBand animate__delay-1s'>}</h1>
 			</div>
@@ -47,7 +47,21 @@ export default {
 		},
 		handleScroll(){
 			this.isScrolling = true;
-		}
+		},
+		addScrollListener(){
+			window.addEventListener('scroll', this.handleScroll)		
+		},
+		addHandListener(){
+			let hand = document.querySelector('#handPeace')
+			hand.addEventListener("mouseenter", () => {
+				hand.classList.remove('animate__fadeInDownBig')
+				hand.classList.remove('animate__jackInTheBox')
+				hand.classList.add('animate__jackInTheBox')
+			})
+			hand.addEventListener('animationend', () => {
+				hand.classList.remove('animate__jackInTheBox')
+			})
+		},
 	},
 	data(){
 		return{
@@ -64,8 +78,9 @@ export default {
 			]
 		}
 	},
-	created(){
-		window.addEventListener('scroll', this.handleScroll)
+	mounted(){
+		this.addHandListener()
+		this.addScrollListener()
 	}
 };
 </script>

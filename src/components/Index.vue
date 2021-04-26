@@ -65,7 +65,7 @@ export default{
 	},
 	computed: {
 		style(){
-			return {minHeight: (this.screen_h) + "px",}
+			return {minHeight: (this.screen_h) + "px !important",}
 		}
 	},
 	mounted(){

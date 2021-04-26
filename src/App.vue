@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     makeTransparent(){
-      let els = document.querySelectorAll(".animate")
+      let els = document.querySelectorAll(".animate, .animate__late")
       els.forEach( el => {
         el.style.setProperty('visibility', 'hidden')
       })
@@ -37,8 +37,7 @@ export default {
           animate(el);
         });
       });
-    },
-
+    }
   },
   mounted(){
     this.makeTransparent()

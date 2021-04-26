@@ -1,17 +1,15 @@
 <template>
-  <b-row align-h='around' align-v='center'>
+  <b-row align-h='around' class='h-100'>
     <b-col cols='12' class='cols-1'>
       <h1 class='animate'>
         <h1 class='title bigger text-full text-center'>Projects</h1>
       </h1>
     </b-col>
 
-    <b-col v-for='project in projects' :key='project._id' cols='12' md='6' lg='4' class='cols-2 bg h-100'>
-      <div class='d-block animate animate__zoom'>
-        <Work :project='project'/>
-      </div>
+    <b-col v-for='project in projects' :key='project._id' cols='12' md='6' lg='4' class='cols-2 bg work'>
+      <Work :project='project'/> 
     </b-col>
-    
+
 		<b-col cols='12' class='text-center cols-3'>
 			<b-link class='btn btn-dark text-full mono animate animate__delay__1s' @click="handleClick">Talk to me</b-link>
 		</b-col>
@@ -45,7 +43,6 @@ export default {
   },
   async mounted(){
     await this.fecthProjects()
-
   }
 }
 </script>  
@@ -61,6 +58,10 @@ export default {
     &-3{
       margin-top: 15% !important;
     }
+  }
+  .project{
+    //display: flex; /* equal height of the children */
+    min-height: 100%;
   }
 
 </style>

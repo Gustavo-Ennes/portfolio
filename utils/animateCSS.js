@@ -3,9 +3,14 @@
 const getAnimation = (classList) => {
   let animation = ''
   if(classList.contains('btn')){
-    animation = (classList.contains('rolling') ? 'rollOut' : 'rollIn')
+    animation = 'rollIn'
   }else{
-    animation = (classList.contains("animate__zoom") ? 'zoomInDown' : 'backInUp')
+    // verifying if its the description, to appear came from green portal
+    if(classList.contains('fromPortal')){
+      animation = 'zoomInUp'
+    }else{
+      animation = (classList.contains("animate__zoom") ? 'zoomInDown' : 'backInUp')
+    }
   }
 
   return animation
@@ -13,9 +18,11 @@ const getAnimation = (classList) => {
   
 // verify if the element is in the defined part of screen to animate it
 let canAnimate = (el) => {
-  return (
-    el.getBoundingClientRect().bottom <= window.screen.height - 10 ||
-    el.getBoundingClientRect().top < window.screen.height / 3 * 2
+  return ((!el.classList.contains('rolling')) && 
+    (
+      el.getBoundingClientRect().bottom <= window.screen.height - 10 ||
+      el.getBoundingClientRect().top < window.screen.height / 3 * 2
+    )
   )
 }
 
@@ -29,6 +36,20 @@ const removeClasses = (el, animation) => {
   }
 }
 
+const checkAnimateLate = (el) => {
+  let animateLate = el.querySelector(".animate__late")
+
+  if(animateLate){    
+    animateLate.addEventListener('animationstart', () => {
+      animateLate.style.setProperty('visibility', 'visible')
+    })
+    animateLate.addEventListener('animationend', () => {
+      animateLate.classList.remove('animate__animated', 'animate__jackInTheBox')
+    })
+    animateLate.classList.add('animate__animated',  'animate__jackInTheBox')
+  }
+}
+
 let animate = (el) => {
   // We create a Promise and return it
   let willAnimate = canAnimate(el)
@@ -36,15 +57,17 @@ let animate = (el) => {
   let animation = getAnimation(el.classList)
 
 
-  if(willAnimate || animation === 'rollOut'){
+  if(willAnimate){
 
     new Promise((resolve) => {
+
+      let duration = (animation === 'zoomIn') ? '1.2s' : '0.8s' 
 
       el.addEventListener('animationstart', () => {
         el.style.setProperty('visibility', 'visible')
       })
 
-      el.style.setProperty('--animate-duration', '.8s');
+      el.style.setProperty('--animate-duration', duration) 
       
       el.classList.add(`animate__animated`, `animate__${animation}`);
 
@@ -55,11 +78,14 @@ let animate = (el) => {
         removeClasses(el, animation);
 
         if(animation === 'rollIn'){
+          el.classList.add('rolling')
+
           el.addEventListener('click', () => {
-            el.classList.add('rolling')
-            animate(el);
+            el.classList.add(`animate__animated`, `animate__rollOut`);
           })
         }
+
+        checkAnimateLate(el)
         
         resolve('Animation ended');
       }
