@@ -33,7 +33,7 @@
             storing in no-sql database like <span class='text-success'>mongoDB</span> or a relational one,
             and handling the client side with the awesome <span class='text-vue'>Vue.js.... </span>
           </p>
-          <a class='text-full' v-b-modal.modal-me><small>Read more</small></a>
+          <!-- <a class='text-full' v-b-modal.modal-me><small>Read more</small></a> -->
           <b-modal 
           id="modal-me" 
           size="xl" 
