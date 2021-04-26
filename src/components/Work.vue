@@ -36,30 +36,30 @@ export default {
   name: "Work",
   props: ['project'],
   methods: {
-    addProjectListener(){
-			let projects = document.querySelectorAll('.project')
-      projects.forEach( project => {
+    // addProjectListener(){
+		// 	let projects = document.querySelectorAll('.project')
+    //   projects.forEach( project => {
 
-        project.addEventListener('animationend', () => {
-          project.classList.remove('animate__animated', 'animate__zoomIn')
-        })
+    //     project.addEventListener('animationend', () => {
+    //       project.classList.remove('animate__animated', 'animate__zoomIn')
+    //     })
 
-        project.addEventListener('mouseleave', () => {
-          project.classList.remove('animating')
-        })
+    //     project.addEventListener('mouseleave', () => {
+    //       project.classList.remove('animating')
+    //     })
 
-        project.addEventListener("mouseenter", () => {
-          if(!project.classList.contains('animating')){
-            project.style.setProperty('--animate-duration', '0.4s')
-            project.classList.add('animate__animated', 'animate__zoomIn', 'animating')
-          }
-        })
-      })
-    },
+    //     project.addEventListener("mouseenter", () => {
+    //       if(!project.classList.contains('animating')){
+    //         project.style.setProperty('--animate-duration', '0.4s')
+    //         project.classList.add('animate__animated', 'animate__zoomIn', 'animating')
+    //       }
+    //     })
+    //   })
+    // },
   },
-  mounted(){
-    this.addProjectListener()
-  }
+  // mounted(){
+  //   this.addProjectListener()
+  // }
 }
 </script>
 
