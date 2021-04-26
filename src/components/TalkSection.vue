@@ -159,8 +159,8 @@ export default {
         try{
           this.btnLoading = true
 
-          // await this.sendClientMail()
-          // await this.sendMyMail()
+          await this.sendClientMail()
+          await this.sendMyMail()
 
           this.btnLoading = false
           this.emailSended = true      
