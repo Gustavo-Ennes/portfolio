@@ -32,10 +32,15 @@ export default {
       let animate = require('../utils/animateCSS')
 
       document.addEventListener('scroll',() => {
+        // animate elements while scrolling
         const toAnimateElements = document.querySelectorAll(".animate");
         toAnimateElements.forEach( (el) => {
           animate(el);
         });
+
+        
+  // -ms-transform: skewY(20deg); /* IE 9 */
+  // transform: skewY(20deg);
       });
     }
   },

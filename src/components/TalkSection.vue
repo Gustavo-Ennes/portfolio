@@ -56,19 +56,19 @@
       <div class='socialWrapper my-5'>
         <b-row align-h='center' class='text-center logo'>
           <b-col>
-            <a href='#'><i class="logo-face fab fa-facebook display-4 animate animate__zoom"></i></a>
+            <a href='https://www.facebook.com/gustavo.ennes.77/'><i class="logo-face fab fa-facebook display-4 animate animate__zoom"></i></a>
           </b-col>
 
           <b-col>
-            <a href='#'><i class="logo-github fab fa-github display-4 animate animate__zoom"></i></a>
+            <a href='https://github.com/Gustavo-Ennes'><i class="logo-github fab fa-github display-4 animate animate__zoom"></i></a>
           </b-col>
 
           <b-col>
-            <a href='#'><i class="logo-linkedin fab fa-linkedin display-4 animate animate__zoom"></i></a>
+            <a href='https://www.linkedin.com/in/gustavo-ennes/'><i class="logo-linkedin fab fa-linkedin display-4 animate animate__zoom"></i></a>
           </b-col>
 
           <b-col>
-            <a href='#'><i class="logo-hackerrank fab fa-hackerrank display-4 animate animate__zoom"></i></a>
+            <a href='https://www.hackerrank.com/gustavo_ennes'><i class="logo-hackerrank fab fa-hackerrank display-4 animate animate__zoom"></i></a>
           </b-col>
         </b-row>
       </div>

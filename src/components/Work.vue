@@ -10,7 +10,7 @@
           <p class='project-subtitle text-white text-shadow'>{{ project.subTitle}}</p>
         </div>
         <div class="project-body bg">
-          <p class='project-text mono text-shadow text-white'>{{ project.description }}</p>
+          <p class='project-text mono text-shadow text-white font'>{{ project.description }}</p>
 
           <b-row align-v='center' align-h='around'>
             <b-col v-for="tech in project.usedTechs" :key='tech' class='text-center'>
@@ -86,7 +86,7 @@ export default {
       padding: 5px;
     }
     &-text{
-      @include size(13px, 17px, 24px, 30px, 'f');
+      @include size(10px, 12px, 15px, 18px, 'f');
       margin-top: 10% !important;
       border-top-right-radius: 100px;
       padding: 5px;
