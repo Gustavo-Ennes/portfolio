@@ -51,9 +51,7 @@ export default {
   metaInfo: {
     // Children can override the title.
     title: `
-        Full-stack web developer freelancer, Javascript developer, Python developer, Node developer, 
-        Vue developer, Django developer, Gustavo Ennes portfolio, Gustavo Ennes dev, Gustavo Ennes projects, 
-        Gustavo Ennes freelancer
+      Gustavo Ennes - web development in node, python, django, vue 
       `,
     // Result: My Page Title ← My Site
     // If a child changes the title to "My Other Page Title",
@@ -72,12 +70,14 @@ export default {
         Full-stack web developer freelancer, node, python, django, RESTful api's, Cloud Functions, 
         relational and non-relational databases. Check out my portfolio to see my projects!
       `},
-      {property: 'og:title', content: 'Web developer Gustavo Ennes website'},
+      {property: 'og:title', content: `
+      Gustavo Ennes - web development in node, python, django, vue 
+      `},
       {property: 'og:site_name', content: 'Ennes Dev'},
       // The list of types is available here: http://ogp.me/#types
       {property: 'og:type', content: 'website'},
       // Should the the same as your canonical link, see below.
-      {property: 'og:url', content: 'Web developer Gustavo Ennes website'},
+      {property: 'og:url', content: 'https://ennes.dev'},
       //{property: 'og:image', content: 'https://www.my-site.com/my-special-image.jpg'},
       // Often the same as your meta description, but not always.
       {property: 'og:description', content:  `

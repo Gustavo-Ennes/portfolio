@@ -25,12 +25,14 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new SitemapPlugin({ base: 'https://ennes.dev', paths }),
-    new SitemapPlugin({ base: 'https://projects.feriapp.ennes.dev', paths }),
-    new SitemapPlugin({ base: 'https://projects.kratodo.ennes.dev', paths }),
-    new SitemapPlugin({ base: 'https://projects.vigilant.ennes.dev', paths }),
-  ]
+  configureWebpack: {
+    plugins: [
+      new SitemapPlugin({ base: 'https://ennes.dev', paths }),
+      new SitemapPlugin({ base: 'https://projects.feriapp.ennes.dev', paths }),
+      new SitemapPlugin({ base: 'https://projects.kratodo.ennes.dev', paths }),
+      new SitemapPlugin({ base: 'https://projects.vigilant.ennes.dev', paths }),
+    ]
+  }
 };
 
   /*
