@@ -51,7 +51,7 @@ export default {
   metaInfo: {
     // Children can override the title.
     title: `
-      Gustavo Ennes - web development in node, python, django, vue 
+       - web development in node, python, django, vue 
       `,
     // Result: My Page Title ← My Site
     // If a child changes the title to "My Other Page Title",

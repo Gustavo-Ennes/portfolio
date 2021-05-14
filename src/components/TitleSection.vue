@@ -6,7 +6,7 @@
 					{
 				</h1>
 				<h1 class='text-center text-light title bigger'>
-					hello: <small id='handPeace' class='far fa-hand-peace text-full animate__animated animate__fadeInDownBig animate__delay__1s'></small>
+					<span class='traslate'>Hello</span> <small id='handPeace' class='far fa-hand-peace text-full animate__animated animate__fadeInDownBig animate__delay__1s'></small>
 				</h1>
 				<h1 :class="{'animate__hinge animate__delay__1s': isScrolling}" class='text-right text-warning exclamation bigger animate__animated animate__rubberBand animate__delay-1s'>}</h1>
 			</div>
@@ -29,7 +29,7 @@
 			</vue-typed-js>
 		</b-col>
 		<b-col cols='12' class='text-center cols-3'>
-			<b-link class='btn mrgBtn mono animate' @click="handleClick">See more</b-link>
+			<b-link class='btn mrgBtn mono animate translate' @click="handleClick">See more</b-link>
 		</b-col>
 		<!-- <b-col cols='12 text-center'>
 			<b-img id='titleImg' src="https://miro.medium.com/max/1200/1*izk2NkHnucNIl5A-YtlZKw.png" fluid></b-img>

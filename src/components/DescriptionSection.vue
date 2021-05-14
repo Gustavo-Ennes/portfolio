@@ -25,70 +25,49 @@
           <span class='shdwBlue ennes'>Ennes!</span>
         </h1>
         <div class='mono p-2 cols-2 text-bg animate fromPortal'>
-          <p id='description' class='animate__late'>
+          <p id='description' class='animate__late translate'>
             Web development <span class='text-shadow'>using </span>
             <span class='text-node'>Node.js</span>, 
             <span class='text-python'>Python</span>,
-            <span class='text-red'>Java</span> in server side, 
+            <span class='text-red'>Java</span> in server, 
             storing in no-sql database like <span class='text-success'>mongoDB</span> or a relational one,
             and handling the client side with the awesome <span class='text-vue'>Vue.js.... </span>
           </p>
-          <!-- <a class='text-full' v-b-modal.modal-me><small>Read more</small></a> -->
-          <b-modal 
-          id="modal-me" 
-          size="xl" 
-          title="Nice to meet you!"
-          header-text-variant='warning'
-          body-text-variant='warning'
-          footer-text-variant='warning'
-          header-class='modalHeader'
-          ok-only
-          ok-title="Close"
-          ok-variant='warning'
-          title-class='modalTitle'
-          modal-class='modalClass'
-          >
-            <template #modal-backdrop>
-              <div class='vh-100 bd'>
-                <img src='https://static0.colliderimages.com/wordpress/wp-content/uploads/2020/03/the-midnight-gospel-1.jpg' />'
+
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-warning text-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            see more
+          </button>
+
+          <!-- Modal -->
+          <div class="modal modal-fullscreen fade" id="staticBackdrop" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title title" id="staticBackdropLabel"><b>Ennes, Gustavo. Nice to meet you!</b></h5>
+                  <button type="button" class="btn-close btn-light" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body mono">
+                  I'm a problem solver who wants to increase daily my efficiency at solution searching, its applications and implications. A Brazil based beginner in web development,I'm a Information Systems Bachelor student who desires to increase your skills in development of any kind of technology. A computer always was my teenage dream, and  the magic that happens beginning with just 0 and 1 goes, everyday, dictating more and more how our lives can be more easy and accessible and solving unimaginable problems to us few decades ago, inspired me at the computer archteture college subject . It was just a dream until about a year ago, when a realize that I can and I want to learn more about this role, so I've decided to focus in the learning process of to read, search and test solutions, to apply them to my projects and build a portfolio, independently of a language or technology in particular. I hope to contact you soon.
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-warning text-success" data-bs-dismiss="modal">back</button>
+                </div>
               </div>
-            </template>
-            <b-row>
-              <b-col cols='12' lg='6'>
-                <b-img src='https://i.postimg.cc/Mp7dbfyZ/eu.jpg' rounded='circle' fluid alt='My photo'></b-img>
-              </b-col>
-
-              <b-col cols='12' lg='6'>
+            </div>
+          </div>
 
 
-                <b-row>
-                  <b-col cols='12'>
-                    <h1 class='text-center title text-full mx-auto'>My hackerrank badges</h1>
-                   <b-img src='https://i.postimg.cc/wxVQ4YPH/badges.png' fluid alt='My hackerrank badges'></b-img>
-                  </b-col>
-                  <b-col cols='12'>
-                    <p class='mono text-python my-3'>
-                      A beginner realising, after few projects, that the things I know are a drop, the things that 
-                      I know that I don't know is a river and the things that I don't know that I don't know is the hugeness of all oceansz\
-                    </p>
-                  </b-col>
-                </b-row>
-
-
-              </b-col>
-            </b-row>                     
-          </b-modal>
         </div>
       </div>
     </b-col>
     <b-col cols='12' class='w-100 text-center cols-3'>
-      <p class='text-shadow mono text-yellow-l animate__delay__2s animate '>
-        ...while listen to a 8 minutes or more progrock
-         song while drinking a pure strong almost-no-sugar coffee <i class='fas fa-mug-hot display-4 animate__late'></i>
+      <p class='text-shadow mono text-yellow-l animate__delay__2s animate'>
+        <span class='translate'>..while listen to a 14 minutes progrock song drinking a pure strong almost-no-sugar coffee</span> <i class='fas fa-mug-hot display-4 animate__late'></i>
       </p>
     </b-col>
 		<b-col cols='12' class='text-center cols-4'>
-			<b-link class='btn btn-dark text-full mrgBtn mono animate' @click="handleClick">See projects</b-link>
+			<b-link class='btn btn-dark text-full mrgBtn mono animate' @click="handleClick"><span class='translate'>See projects</span></b-link>
 		</b-col>
   </b-row>
 </template>
@@ -121,15 +100,38 @@ export default {
       obj.addEventListener('mouseleave', () => {
         obj.classList.remove('animating')
       })
-    },
+    }
   },
-  mounted(){
+  async mounted(){
     this.addDescriptionListener()
   }
 }
 </script>
 
 <style lang='scss' scoped>
+  .modal{
+      background: url(https://static0.cbrimages.com/wordpress/wp-content/uploads/2020/04/Netflix-The-Midnight-Gospel-Clancy-5-Cropped.jpg) center no-repeat;
+      background-position: cover;
+
+      &-title{
+        color:#eee;
+        text-shadow: 1px 1px 2px #000;
+        padding:5px;
+        border-radius: 10px;
+        background-color: rgba(50, 150, 50, 0.4);
+      }
+
+      &-content{
+        background:rgba(50, 150, 50, 0.8) !important;
+        color:$color_yellow !important;
+        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+      }
+
+      &-header{
+        background: url('../assets/badges.png') center no-repeat;
+        background-size: 100% 100%;
+      }
+  }
   .cols{
     &-1{
       margin-top: 5% !important;

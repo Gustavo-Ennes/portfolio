@@ -7,10 +7,10 @@
       <b-col cols='12' class='project-top'>
         <div class='project-header bg p-2'>
           <h5 class='project-title title text-yellow text-shadow bg'><b class='animate__late'>{{ project.title }}</b></h5>
-          <p class='project-subtitle text-white text-shadow'>{{ project.subTitle}}</p>
+          <p class='project-subtitle text-white text-shadow translate'>{{ project.subTitle}}</p>
         </div>
         <div class="project-body bg">
-          <p class='project-text mono text-shadow text-white font'>{{ project.description }}</p>
+          <p class='project-text mono text-shadow text-white font translate'>{{ project.description }}</p>
 
           <b-row align-v='center' align-h='around'>
             <b-col v-for="tech in project.usedTechs" :key='tech' class='text-center'>
@@ -21,9 +21,9 @@
       </b-col>
       <b-col cols='12' class='project-footer'>
         <ul class="list-group list-group-flush text-full text-shadow text-center p-2 h-100">
-          <li class='list-group-item'><b-link :href='project.projectLink'>Page</b-link></li>
-          <li class='list-group-item'><b-link :href='project.repo'>Repo</b-link></li>
-          <li class='list-group-item'><b-link :href='project.presentation'>Presentation</b-link></li>
+          <li class='list-group-item'><b-link :href='project.projectLink'><span class='translate'>Page</span></b-link></li>
+          <li class='list-group-item'><b-link :href='project.repo'><span class='translate'>Repo</span></b-link></li>
+          <li class='list-group-item'><b-link :href='project.presentation'><span class='translate'>Presentation</span></b-link></li>
         </ul>
       </b-col>
     </b-row>
@@ -34,32 +34,7 @@
 <script>
 export default {
   name: "Work",
-  props: ['project'],
-  methods: {
-    // addProjectListener(){
-		// 	let projects = document.querySelectorAll('.project')
-    //   projects.forEach( project => {
-
-    //     project.addEventListener('animationend', () => {
-    //       project.classList.remove('animate__animated', 'animate__zoomIn')
-    //     })
-
-    //     project.addEventListener('mouseleave', () => {
-    //       project.classList.remove('animating')
-    //     })
-
-    //     project.addEventListener("mouseenter", () => {
-    //       if(!project.classList.contains('animating')){
-    //         project.style.setProperty('--animate-duration', '0.4s')
-    //         project.classList.add('animate__animated', 'animate__zoomIn', 'animating')
-    //       }
-    //     })
-    //   })
-    // },
-  },
-  // mounted(){
-  //   this.addProjectListener()
-  // }
+  props: ['project']
 }
 </script>
 

@@ -1,8 +1,8 @@
 <template>
   <b-row align-v='center' class='main vh-100'>
-    <b-col cols='12'><h1 class='text-full display-2 title text-center text-shadow my-5'>Send a <span class='text-vue animate'>message</span></h1></b-col>
+    <b-col cols='12'><h1 class='text-full display-2 title text-center text-shadow my-5'><span class='translate'>Send a </span><span class='text-vue animate'><span class='translate'>message</span></span></h1></b-col>
     <b-col cols='12' md='6'>
-      <h1 class='display-1 text-full title text-center text-shadow animate'>h e r e</h1>
+      <h1 class='display-1 text-full title text-center text-shadow animate'><span class='translate'>here</span></h1>
     </b-col>
     <b-col v-if='!emailSended' cols='12' md='6' class='form'>
       <div class='m-2 mt-5 text-center'>
@@ -35,6 +35,7 @@
         >
           <b-overlay
             id="overlay-background"
+            class=' translate'
             :show="btnLoading"
             :variant="'primary'"
             :opacity="'0.1'"
@@ -48,7 +49,7 @@
     </b-col>
 
     <b-col cols='12' md='6' v-else class='thanks animate__animated animate__fadeInUp'>
-      <h1 class='display-3 text-center text-shadow mono text-red'>Thank You</h1>
+      <h1 class='display-3 text-center text-shadow mono text-red translate'>Thank You</h1>
     </b-col>
 
     <b-col cols='12'>
