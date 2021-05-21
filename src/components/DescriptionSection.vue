@@ -33,38 +33,31 @@
             storing in no-sql database like <span class='text-success'>mongoDB</span> or a relational one,
             and handling the client side with the awesome <span class='text-vue'>Vue.js.... </span>
           </p>
-
-          <!-- Button trigger modal -->
-          <button type="button" class="btn btn-warning text-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            see more
-          </button>
-
-          <!-- Modal -->
-          <div class="modal modal-fullscreen fade" id="staticBackdrop" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title title" id="staticBackdropLabel"><b>Ennes, Gustavo. Nice to meet you!</b></h5>
-                  <button type="button" class="btn-close btn-light" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body mono">
-                  I'm a problem solver who wants to increase daily my efficiency at solution searching, its applications and implications. A Brazil based beginner in web development,I'm a Information Systems Bachelor student who desires to increase your skills in development of any kind of technology. A computer always was my teenage dream, and  the magic that happens beginning with just 0 and 1 goes, everyday, dictating more and more how our lives can be more easy and accessible and solving unimaginable problems to us few decades ago, inspired me at the computer archteture college subject . It was just a dream until about a year ago, when a realize that I can and I want to learn more about this role, so I've decided to focus in the learning process of to read, search and test solutions, to apply them to my projects and build a portfolio, independently of a language or technology in particular. I hope to contact you soon.
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-warning text-success" data-bs-dismiss="modal">back</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
         </div>
       </div>
     </b-col>
     <b-col cols='12' class='w-100 text-center cols-3'>
-      <p class='text-shadow mono text-yellow-l animate__delay__2s animate'>
-        <span class='translate'>..while listen to a 14 minutes progrock song drinking a pure strong almost-no-sugar coffee</span> <i class='fas fa-mug-hot display-4 animate__late'></i>
-      </p>
+      <b-container>
+        <p class='text-shadow mono text-dark animate__delay__2s animate'>
+          <span class='translate desc'>
+
+
+            I'm a problem solver who wants to increase daily my efficiency at solution searching, 
+            its applications and implications. A Brazil based beginner in web development, 
+            I'm a Information Systems Bachelor student who desires to increase your skills in 
+            development of any kind of technology. A computer always was my teenage dream, and  the magic 
+            that happens beginning with just 0 and 1 goes, everyday, dictating more and more 
+            how our lives can be more easy and accessible and solving unimaginable problems to us 
+            few decades ago, inspired me at the computer archteture college subject . It was just a 
+            dream until about a year ago, when a realize that I can and I want to learn more about 
+            this role, so I've decided to focus in the learning process of to read, search and 
+            test solutions, to apply them to my projects and build a portfolio, independently 
+            of a language or technology in particular. I hope to contact you soon.
+
+            
+          </span> <i class='fas fa-mug-hot display-4 animate__late'></i>
+        </p>
+      </b-container>
     </b-col>
 		<b-col cols='12' class='text-center cols-4'>
 			<b-link class='btn btn-dark text-full mrgBtn mono animate' @click="handleClick"><span class='translate'>See projects</span></b-link>
@@ -189,6 +182,14 @@ export default {
       text-shadow:-3px 2px 2px #000 !important;
     }
   }
+
+  .desc{
+    font-size:25px;
+    text-shadow: 1px 2px 1px rgba(255, 255, 255, 0.651);
+    margin-top: 50px;
+    background-color: rgba(255, 255, 255, 0.2)
+  }
+
   
   .modalTitle{
     @include size(15px ,18px, 20px, 25px, 'f');
